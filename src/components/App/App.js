@@ -1,16 +1,13 @@
 import React from 'react';
+import './App.css';
 import Box from '@material-ui/core/Box';
+import MainAuthorization from '../MainAuthorization/MainAuthorization'
 
 function App() {
   return (
-    <div style={{ width: '100%' }}>
+    <div className="App">
       <Box display="flex" justifyContent="space-between" m={1} p={1}>
-        <Box p={1}>
-          Item 1
-        </Box>
-        <Box p={1}>
-          Item 1
-        </Box>
+        <MainAuthorization />
       </Box>
     </div>
   );

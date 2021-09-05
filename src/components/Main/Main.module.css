@@ -1,0 +1,19 @@
+.button {
+    width: 250px;
+    height: 250px;
+    transform: rotate(45deg);
+    border-radius: 20px;
+}
+
+.buttonMarket_desabled {
+    background: rgba(134, 189, 36, 0.3);
+}
+
+.buttonUser_desabled {
+    background: rgba(2, 152, 169, 0.3);
+}
+
+.buttonProgects_desabled {
+    background: rgba(65, 69, 73, 0.3);
+}
+
