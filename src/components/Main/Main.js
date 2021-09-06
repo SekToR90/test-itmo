@@ -1,6 +1,6 @@
 import React from 'react';
 import Box from '@material-ui/core/Box';
-import { Button, Grid, Typography } from '@material-ui/core';
+import { Button, Typography } from '@material-ui/core';
 import classes from './Main.module.scss';
 import classNames from 'classnames';
 
