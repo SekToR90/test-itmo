@@ -1,16 +1,20 @@
-.button {
-    width: 250px;
-    height: 250px;
-    border-radius: 20px;
-}
+$buttonWidth: 250px;
+$containerWidth: $buttonWidth * 2 + 20px;
 
-.buttonContainer {
-    grid-template-columns: repeat(2, 250px);
+
+:global(#buttonContainer) {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: $containerWidth;
     transform: rotate(-45deg);
-    grid-gap: 20px;
-}
 
-.buttonContainer:global(.MuiGrid-container) {
+    .button {
+        width: $buttonWidth;
+        height: $buttonWidth;
+        border-radius: 20px;
+    }
+
     .buttonMarket_disabled {
         background: rgba(134, 189, 36, 0.3);
     }
@@ -21,5 +25,13 @@
 
     .buttonProgects_disabled {
         background: rgba(65, 69, 73, 0.3);
+    }
+
+    .button_first {
+        margin-bottom: 20px;
+    }
+
+    .button_second {
+        transform: translateY(60px);
     }
 }

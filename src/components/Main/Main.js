@@ -7,11 +7,11 @@ import classNames from 'classnames';
 function MainRegister(props) {
   return (
     <>
-    <Grid container className={classes.buttonContainer}>
-      <Button variant="contained" className={classNames(classes.button, classes.buttonProgects_disabled)}  disabled></Button>
+    <div id="buttonContainer">
+      <Button variant="contained" className={classNames(classes.button, classes.button_first, classes.buttonProgects_disabled)}  disabled></Button>
+      <Button variant="contained" className={classNames(classes.button, classes.button_second, classes.buttonMarket_disabled)} disabled>MARKET</Button>
       <Button variant="contained" className={classNames(classes.button, classes.buttonUser_disabled)} disabled></Button>
-      <Button variant="contained" className={classNames(classes.button, classes.buttonMarket_disabled)} disabled>MARKET</Button>
-    </Grid>
+    </div>
     <Box display="flex" flexDirection="column">
       <Typography variant="h1" className={classes.title}>Welcome to the ...</Typography>
       {props.children}
