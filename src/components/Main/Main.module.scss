@@ -1,7 +1,6 @@
 $buttonWidth: 250px;
 $containerWidth: $buttonWidth * 2 + 20px;
 
-
 :global(#buttonContainer) {
     display: flex;
     justify-content: space-between;
@@ -34,4 +33,23 @@ $containerWidth: $buttonWidth * 2 + 20px;
     .button_second {
         transform: translateY(60px);
     }
+}
+
+.buttonText {
+    font-family: "Open Sans", "Roboto", "Arial", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 18px;
+    transform: rotate(45deg);
+    color: #ffffff;
+}
+
+.title {
+    font-family: "Open Sans", "Roboto", "Arial", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 33px;
+    margin-bottom: 163px;
 }

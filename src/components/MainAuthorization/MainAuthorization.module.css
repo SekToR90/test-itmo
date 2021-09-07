@@ -1,7 +1,7 @@
 .subtitle {
-    font-family: 'Roboto', "Arial", sans-serif;;
+    font-family: "Roboto", "Arial", sans-serif;
     font-style: normal;
-    font-weight: 500;
+    font-weight: bold;
     font-size: 24px;
     line-height: 24px;
     margin: 0 0 24px;
@@ -19,4 +19,30 @@
     border: 1px solid #414549;
     box-sizing: border-box;
     border-radius: 4px;
+}
+
+:global(#formSignIn) .buttonSignIn {
+    font-family: "Open Sans", "Roboto", "Arial", sans-serif;
+    width: 160px;
+    height: 48px;
+    background: #0298a9;
+    color: #ffffff;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    text-transform: none;
+}
+
+:global(#formSignIn)  .buttonForgotPassword {
+    width: 135px;
+    justify-content: flex-start;
+    text-transform: none;
+    margin-bottom: 24px;
+}
+
+.mainBox {
+    background-image: url('../../images/background.jpg');
+    background-blend-mode: multiply;
+    padding-top: 64px;
 }
