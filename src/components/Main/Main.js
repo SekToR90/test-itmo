@@ -6,7 +6,7 @@ import classNames from 'classnames';
 
 function MainRegister(props) {
   return (
-    <>
+    <Box display="flex" justifyContent="space-evenly" className={classNames(classes.mainBox)} m={1} p={1}>
     <div id="buttonContainer">
       <Button variant="contained" className={classNames(classes.button, classes.button_first, classes.buttonProgects_disabled)}  disabled>
       <p className={classNames(classes.buttonText)}>PROJECTS</p>
@@ -22,7 +22,7 @@ function MainRegister(props) {
       <h1 className={classNames(classes.title)}>Welcome to the ...</h1>
       {props.children}
     </Box>
-    </>
+    </Box>
   );
 }
 

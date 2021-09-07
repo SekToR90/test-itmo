@@ -1,5 +1,46 @@
-.gridBox {
-    display: grid;
-    grid-row-start: 1;
-    grid-row-end: 2;
+.userName {
+    margin: 0;
+    font-family: "Open Sans", "Roboto", "Arial", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.1px;
+}
+
+.team {
+    margin: 0;
+    font-family: "Roboto", "Arial", sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 24px;
+    letter-spacing: 0.1px;
+}
+
+.boxUser {
+    margin-left: 19px;
+}
+
+.userLogo {
+    width: 50px;
+    height: 50px;
+}
+
+.userData {
+    margin: 16px 0 70px 20px;
+}
+
+.pageMenu {
+    background: #f9f6f4;
+    transform: translate(24px, 24px);
+}
+
+.buttonText {
+    margin-left: 24px;
+    font-family: "Open Sans", "Roboto", "Arial", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
 }

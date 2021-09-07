@@ -40,9 +40,3 @@
     text-transform: none;
     margin-bottom: 24px;
 }
-
-.mainBox {
-    background-image: url('../../images/background.jpg');
-    background-blend-mode: multiply;
-    padding-top: 64px;
-}

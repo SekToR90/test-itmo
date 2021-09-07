@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import MainAuthorization from '../MainAuthorization/MainAuthorization'
+import {MainAuthorization} from '../MainAuthorization/MainAuthorization'
 import Page from '../Page/Page'
 
 function App() {

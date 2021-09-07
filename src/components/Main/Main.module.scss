@@ -53,3 +53,9 @@ $containerWidth: $buttonWidth * 2 + 20px;
     line-height: 33px;
     margin-bottom: 163px;
 }
+
+.mainBox {
+    background-image: url('../../images/background.jpg');
+    background-blend-mode: multiply;
+    padding-top: 64px;
+}
