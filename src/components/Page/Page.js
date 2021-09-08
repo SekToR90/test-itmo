@@ -1,6 +1,5 @@
 import React from 'react';
 import Box from '@material-ui/core/Box';
-import Avatar from '@material-ui/core/Avatar';
 import classes from './Page.module.scss';
 import classNames from 'classnames';
 import logo from '../../images/logo.svg';
@@ -9,10 +8,7 @@ import WorkIcon from '@material-ui/icons/Work';
 import DonutSmallIcon from '@material-ui/icons/DonutSmall';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import GroupIcon from '@material-ui/icons/Group';
-import Icon from '@material-ui/core/Icon';
 
-
-import workIcon from '../../images/work-icon.svg'
 
 function Page() {
     return (
@@ -64,6 +60,7 @@ function Page() {
                     height: '18px', borderRadius: '5px', transform: 'rotate(-180deg)'
                 }} /><span>Logout</span></Button>
             </Box>
+            <h1>Page_1</h1>
         </Box>
     );
 }
