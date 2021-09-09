@@ -95,7 +95,7 @@ function Page({title, dispatch}) {
                         <Link to='/' style={{color: '#717171',
                          textDecoration: 'none'
                          }}>
-                        <span>Main Page</span>
+                        <span className={classes.buttonLink}>Main Page</span>
                         </Link>
                     </Button>
                     <Button disableElevation style={bottomButtons} onClick={buttonLogout}>
@@ -103,7 +103,7 @@ function Page({title, dispatch}) {
                             ...iconExitStyles, 
                             transform: 'rotate(-180deg)'
                         }} />
-                        <span>Logout</span>
+                        <span className={classes.buttonLink}>Logout</span>
                     </Button>
                 </section>
             </Box>

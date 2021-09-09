@@ -69,3 +69,31 @@
     line-height: 24px;
     margin: 404px 437px 0 0;
 }
+
+@media screen and (max-width: 788px) {
+    .buttonText{
+        display: none;
+    }
+
+    .buttonLink {
+        display: none;
+    }
+
+    .userData {
+        margin: 16px auto 70px;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .team {
+       display: none;
+    }  
+    
+    .boxUser {
+        margin: 0;
+    }
+
+    .textPage {
+        margin: 390px 213px 0 0;
+    }
+}
