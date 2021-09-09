@@ -3,27 +3,55 @@ import Box from '@material-ui/core/Box';
 import { Button } from '@material-ui/core';
 import classes from './Main.module.scss';
 import classNames from 'classnames';
+import { connect } from 'react-redux'
 
-function MainRegister(props) {
+function MainRegister({ children, isAuth }) {
   return (
     <Box display="flex" justifyContent="space-evenly" className={classNames(classes.mainBox)} m={1} p={1}>
-    <div id="buttonContainer">
-      <Button variant="contained" className={classNames(classes.button, classes.button_first, classes.buttonProgects_disabled)}  disabled>
-      <p className={classNames(classes.buttonText)}>PROJECTS</p>
-      </Button>
-      <Button variant="contained" className={classNames(classes.button, classes.button_second, classes.buttonMarket_disabled)} disabled>
-        <p className={classNames(classes.buttonText)}>MARKET</p>
-      </Button>
-      <Button variant="contained" className={classNames(classes.button, classes.buttonUser_disabled)} disabled>
-      <p className={classNames(classes.buttonText)}>USER</p>
-      </Button>
-    </div>
-    <Box display="flex" flexDirection="column">
-      <h1 className={classNames(classes.title)}>Welcome to the ...</h1>
-      {props.children}
-    </Box>
+      <div id="buttonContainer">
+        <Button
+          variant="contained"
+          className={classNames(
+            classes.button,
+            classes.button_first,
+            classes.buttonProgects, {
+            [classes.buttonProgects_disabled]: !isAuth
+          })}
+          disabled={!isAuth}>
+          <p className={classNames(classes.buttonText)}>PROJECTS</p>
+        </Button>
+        <Button
+          variant="contained"
+          className={classNames(
+            classes.button,
+            classes.button_second,
+            classes.buttonMarket, {
+            [classes.buttonMarket_disabled]: !isAuth
+          })}
+          disabled={!isAuth}>
+          <p className={classNames(classes.buttonText)}>MARKET</p>
+        </Button>
+        <Button
+          variant="contained"
+          className={classNames(
+            classes.button,
+            classes.buttonUser, {
+            [classes.buttonUser_disabled]: !isAuth
+          })}
+          disabled={!isAuth}>
+          <p className={classNames(classes.buttonText)}>USER</p>
+        </Button>
+      </div>
+      <Box display="flex" flexDirection="column">
+        <h1 className={classNames(classes.title)}>Welcome to the ...</h1>
+        {children}
+      </Box>
     </Box>
   );
 }
 
-export default MainRegister;
+const mapStateToProps = (state) => ({
+  isAuth: state.users.isAuth
+})
+
+export default connect(mapStateToProps)(MainRegister)

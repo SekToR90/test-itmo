@@ -14,16 +14,28 @@ $containerWidth: $buttonWidth * 2 + 20px;
         border-radius: 20px;
     }
 
-    .buttonMarket_disabled {
-        background: rgba(134, 189, 36, 0.3);
+    .buttonMarket {
+        background: rgba(134, 189, 36);
+
+        &_disabled {
+            background: rgba(134, 189, 36, 0.3);
+        }
     }
 
-    .buttonUser_disabled {
-        background: rgba(2, 152, 169, 0.3);
+    .buttonUser {
+        background: rgba(2, 152, 169);
+
+        &_disabled {
+            background: rgba(2, 152, 169, 0.3);
+        }
     }
 
-    .buttonProgects_disabled {
-        background: rgba(65, 69, 73, 0.3);
+    .buttonProgects {
+        background: rgba(65, 69, 73);
+
+        &_disabled {
+            background: rgba(65, 69, 73, 0.3);
+        }
     }
 
     .button_first {
@@ -55,7 +67,7 @@ $containerWidth: $buttonWidth * 2 + 20px;
 }
 
 .mainBox {
-    background-image: url('../../images/background.jpg');
+    background-image: url("../../images/background.jpg");
     background-blend-mode: multiply;
     padding-top: 64px;
 }
