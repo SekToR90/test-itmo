@@ -33,11 +33,7 @@ function MainAuthorization({ dispatch, isAuth, loading, user, hasErrors }) {
     dispatch(fetchUsers())
   }
 
-  const renderUsers = () => {
-    if (loading) return <p>Loading users...</p>
-    if (hasErrors) return <p>Unable to display users.</p>
-    return !isAuth ?  form : <div>{user.name}/{user.id}</div>
-  }
+  const userData = <h3>{user?.name}/{user?.id}</h3>
 
   const form = <>
     <h2 className={classNames(classes.subtitle)}>Sign In</h2>
@@ -52,6 +48,12 @@ function MainAuthorization({ dispatch, isAuth, loading, user, hasErrors }) {
       />
     </form>
   </>
+
+  const renderUsers = () => {
+    if (loading) return <p>Loading users...</p>
+    if (hasErrors) return <p>Unable to display users.</p>
+    return !isAuth ?  form : userData
+  }
 
   return (
     <Main children={
