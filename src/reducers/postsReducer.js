@@ -5,7 +5,7 @@ export const initialState = {
   loading: false,
   hasErrors: false,
 }
-  
+ 
 export default function postsReducer(state = initialState, action) {
   switch (action.type) {
     case actions.DO_AUTH:
@@ -18,3 +18,4 @@ export default function postsReducer(state = initialState, action) {
       return state
   }
 }
+

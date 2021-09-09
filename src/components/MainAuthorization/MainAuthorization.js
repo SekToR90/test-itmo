@@ -36,7 +36,7 @@ function MainAuthorization({ dispatch, loading, posts, hasErrors }) {
   const renderPosts = () => {
     if (loading) return <p>Loading posts...</p>
     if (hasErrors) return <p>Unable to display posts.</p>
-    return posts.map((post) => <div key={post.id}>{post.title}</div> )
+    return posts.map((post) => <div key={post.id}>{post.name}</div> )
   }
 
 

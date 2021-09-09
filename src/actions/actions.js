@@ -8,7 +8,7 @@ export function fetchPosts() {
 
         try {
             const [response] = await Promise.all([
-                fetch('https://jsonplaceholder.typicode.com/posts'),
+                fetch('https://jsonplaceholder.typicode.com/users'),
                 new Promise(resolve => setTimeout(resolve, 1000))
             ]);
 
