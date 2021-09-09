@@ -4,6 +4,7 @@ import { Button } from '@material-ui/core';
 import classes from './Main.module.scss';
 import classNames from 'classnames';
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom';
 
 function MainRegister({ children, isAuth }) {
   return (
@@ -20,17 +21,19 @@ function MainRegister({ children, isAuth }) {
           disabled={!isAuth}>
           <p className={classNames(classes.buttonText)}>PROJECTS</p>
         </Button>
-        <Button
-          variant="contained"
-          className={classNames(
-            classes.button,
-            classes.button_second,
-            classes.buttonMarket, {
-            [classes.buttonMarket_disabled]: !isAuth
-          })}
-          disabled={!isAuth}>
-          <p className={classNames(classes.buttonText)}>MARKET</p>
-        </Button>
+        <Link to='/page-1'>
+          <Button
+            variant="contained"
+            className={classNames(
+              classes.button,
+              classes.button_second,
+              classes.buttonMarket, {
+              [classes.buttonMarket_disabled]: !isAuth
+            })}
+            disabled={!isAuth}>
+            <p className={classNames(classes.buttonText)}>MARKET</p>
+          </Button>
+        </Link>
         <Button
           variant="contained"
           className={classNames(
