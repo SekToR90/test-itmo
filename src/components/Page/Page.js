@@ -28,12 +28,16 @@ function Page() {
         height: '18px', borderRadius: '5px', transform: 'rotate(-90deg)'
     };
 
+    const bottomButtons = {
+        justifySelf: 'end'
+    }
+
     return (
-        <Box display="flex">
-            <Box display="flex" flexDirection="column" boxShadow={3} className={classNames(classes.pageMenu)}>
-                <Box display="flex" className={classNames(classes.userData)}>
+        <Box className={classNames(classes.page)}>
+            <Box boxShadow={3} className={classNames(classes.pageMenu)}>
+                <Box className={classNames(classes.userData)}>
                     <img src={logo} alt="logo" className={classNames(classes.userLogo)} />
-                    <Box display="flex" flexDirection="column" className={classNames(classes.boxUser)}>
+                    <Box className={classNames(classes.boxUser)}>
                         <h2 className={classNames(classes.userName)}>User/1</h2>
                         <p className={classNames(classes.team)}>Team member Tube</p>
                     </Box>
@@ -50,7 +54,9 @@ function Page() {
                     <GroupIcon alt="work-icon" style={iconStyles} />
                     <span className={classNames(classes.buttonText)}>Page_3</span>
                 </Button>
-                <Button disableElevation>
+                <Button disableElevation style={
+                    bottomButtons
+                }>
                     <ExitToAppIcon style={iconExitStyles} />
                     <span>Main Page</span>
                 </Button>

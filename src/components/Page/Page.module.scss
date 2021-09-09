@@ -20,6 +20,13 @@
 
 .boxUser {
     margin-left: 19px;
+    display: flex;
+    flex-direction: column;
+}
+
+.page {
+    min-height: 800px;
+    display: flex;
 }
 
 .userLogo {
@@ -29,11 +36,15 @@
 
 .userData {
     margin: 16px 0 70px 20px;
+    display: flex;
 }
 
 .pageMenu {
     background: #f9f6f4;
+    width: 330px;
     transform: translate(24px, 24px);
+    display: flex;
+    flex-direction: column;
 }
 
 .buttonText {
