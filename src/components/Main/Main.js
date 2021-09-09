@@ -21,7 +21,7 @@ function MainRegister({ children, isAuth }) {
 </Button>;
 
   return (
-    <Box display="flex" justifyContent="space-evenly" className={classNames(classes.mainBox)} m={1} p={1}>
+    <Box display="flex" justifyContent="space-evenly" style={{padding:'64px 0 0 0'}} className={classNames(classes.mainBox)} m={1} p={1}>
       <div id="buttonContainer">
         <Button
           variant="contained"

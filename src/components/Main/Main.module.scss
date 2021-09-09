@@ -6,12 +6,13 @@ $containerWidth: $buttonWidth * 2 + 20px;
     justify-content: space-between;
     flex-wrap: wrap;
     width: $containerWidth;
+    height: $containerWidth;
     transform: rotate(-45deg);
 
     a {
         text-decoration: none;
     }
-    
+
     .button {
         width: $buttonWidth;
         height: $buttonWidth;
@@ -72,8 +73,10 @@ $containerWidth: $buttonWidth * 2 + 20px;
 
 .mainBox {
     background-image: url("../../images/background.jpg");
+    background-size: cover;
     background-blend-mode: multiply;
     padding-top: 64px;
+    min-height: 100%;
 }
 
 .link {
