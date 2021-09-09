@@ -15,6 +15,20 @@ import logoutImg from '../../images/logout-img.svg'
 import { CANSEL_AUTH } from '../../actions/actions'
 
 function MainAuthorization({ dispatch, isAuth, loading, user, hasErrors }) {
+  const [emailIsValid, setEmailIsValid] = React.useState(false);
+  const [passwordIsValid, setPasswordIsValid] = React.useState(false);
+  const [passwordErrorMessage, setPasswordErrorMessage] = React.useState('');
+  const [emailErrorMessage, setEmailErrorMessage] = React.useState('');
+
+  function handleEmailChange(evt) {
+    setEmailIsValid(evt.target.validationMessage ? false : true);
+    setEmailErrorMessage(evt.target.validationMessage);
+  }
+
+  function handlePasswordChange(evt) {
+    setPasswordIsValid(evt.target.validationMessage ? false : true);
+    setPasswordErrorMessage(evt.target.validationMessage);
+  }
 
   const GreenCheckbox = withStyles({
     root: {
@@ -56,10 +70,16 @@ function MainAuthorization({ dispatch, isAuth, loading, user, hasErrors }) {
   const form = <>
     <h2 className={classNames(classes.subtitle)}>Sign In</h2>
     <form id="formSignIn" className={classNames(classes.form)}>
-      <input type="email" name="email" placeholder="Email*" className={classNames(classes.input)} required></input>
-      <input type="password" name="password" placeholder="Password*" autoComplete="off" className={classNames(classes.input)} required></input>
+      <input type="email" name="email" placeholder="Email*" className={classNames(classes.input)} required onChange={handleEmailChange}></input>
+      <span id="urlAvatar-error" className={classes.spanError}>
+            {emailErrorMessage}
+          </span>
+      <input type="password" name="password" placeholder="Password*" autoComplete="off" className={classNames(classes.input)} required  onChange={handlePasswordChange}></input>
+      <span  className={classes.spanError} id="urlAvatar-error">
+            {passwordErrorMessage}
+          </span>
       <Button size="small" className={classNames(classes.buttonForgotPassword)}>Forgot password?</Button>
-      <Button variant="contained" className={classNames(classes.buttonSignIn)} onClick={buttonSingIn} disableElevation>Sign In</Button>
+      <Button variant="contained" className={classNames(classes.buttonSignIn)} onClick={buttonSingIn} disableElevation disabled={!emailIsValid || !passwordIsValid}>Sign In</Button>
       <FormControlLabel
         control={<GreenCheckbox checked={state.checkedG} onChange={handleChange} name="checkedG" />}
         label="Remember password"
