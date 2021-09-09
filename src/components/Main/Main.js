@@ -7,6 +7,19 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
 
 function MainRegister({ children, isAuth }) {
+
+  const marketButton = <Button
+  variant="contained"
+  className={classNames(
+    classes.button,
+    classes.button_second,
+    classes.buttonMarket, {
+    [classes.buttonMarket_disabled]: !isAuth
+  })}
+  disabled={!isAuth}>
+  <p className={classNames(classes.buttonText)}>MARKET</p>
+</Button>;
+
   return (
     <Box display="flex" justifyContent="space-evenly" className={classNames(classes.mainBox)} m={1} p={1}>
       <div id="buttonContainer">
@@ -21,19 +34,10 @@ function MainRegister({ children, isAuth }) {
           disabled={!isAuth}>
           <p className={classNames(classes.buttonText)}>PROJECTS</p>
         </Button>
-        <Link to='/page-1' className={classes.link}>
-          <Button
-            variant="contained"
-            className={classNames(
-              classes.button,
-              classes.button_second,
-              classes.buttonMarket, {
-              [classes.buttonMarket_disabled]: !isAuth
-            })}
-            disabled={!isAuth}>
-            <p className={classNames(classes.buttonText)}>MARKET</p>
-          </Button>
-        </Link>
+        { isAuth ? (<Link to='/page-1'>
+            {marketButton}
+          </Link>) : marketButton
+        }
         <Button
           variant="contained"
           className={classNames(

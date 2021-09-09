@@ -8,6 +8,10 @@ $containerWidth: $buttonWidth * 2 + 20px;
     width: $containerWidth;
     transform: rotate(-45deg);
 
+    a {
+        text-decoration: none;
+    }
+    
     .button {
         width: $buttonWidth;
         height: $buttonWidth;

@@ -11,7 +11,7 @@ import GroupIcon from '@material-ui/icons/Group';
 
 function Page() {
     const buttonStyles = {
-        borderRadius: '0', backgroundColor: '#86BD24',
+        borderRadius: '0',
         textTransform: 'none', justifyContent: 'flex-start', paddingLeft: '27px',
         marginBottom: '26px'
     };
@@ -28,44 +28,49 @@ function Page() {
     };
 
     const bottomButtons = {
-        justifySelf: 'end'
+        justifyContent: 'flex-start'
     }
 
     return (
         <Box className={classes.page}>
             <Box boxShadow={3} className={classes.pageMenu}>
-                <Box className={classes.userData}>
-                    <img src={logo} alt="logo" className={classes.userLogo} />
-                    <Box className={classes.boxUser}>
-                        <h2 className={classes.userName}>User/1</h2>
-                        <p className={classes.team}>Team member Tube</p>
+                <section className={classes.pageMenuSection}>
+                    <Box className={classes.userData}>
+                        <img src={logo} alt="logo" className={classes.userLogo} />
+                        <Box className={classes.boxUser}>
+                            <h2 className={classes.userName}>User/1</h2>
+                            <p className={classes.team}>Team member Tube</p>
+                        </Box>
                     </Box>
-                </Box>
-                <Button style={buttonStyles} disableElevation>
-                    <WorkIcon alt="work-icon" style={iconStyles} />
-                    <span className={classes.buttonText}>Page_1</span>
-                </Button>
-                <Button style={buttonStyles} disableElevation>
-                    <DonutSmallIcon alt="work-icon" style={iconStyles} />
-                    <span className={classes.buttonText}>Page_2</span>
-                </Button>
-                <Button style={buttonStyles} disableElevation>
-                    <GroupIcon alt="work-icon" style={iconStyles} />
-                    <span className={classes.buttonText}>Page_3</span>
-                </Button>
-                <Button disableElevation style={
-                    bottomButtons
-                }>
-                    <ExitToAppIcon style={iconExitStyles} />
-                    <span>Main Page</span>
-                </Button>
-                <Button disableElevation>
-                    <ExitToAppIcon style={{
-                        ...iconExitStyles,
-                        transform: 'rotate(-180deg)'
-                    }} />
-                    <span>Logout</span>
-                </Button>
+                    <Button style={{
+                        ...buttonStyles,
+                        backgroundColor: '#86BD24'
+                    }} disableElevation>
+                        <WorkIcon alt="work-icon" style={iconStyles} />
+                        <span className={classes.buttonText}>Page_1</span>
+                    </Button>
+                    <Button style={buttonStyles} disableElevation>
+                        <DonutSmallIcon alt="work-icon" style={iconStyles} />
+                        <span className={classes.buttonText}>Page_2</span>
+                    </Button>
+                    <Button style={buttonStyles} disableElevation>
+                        <GroupIcon alt="work-icon" style={iconStyles} />
+                        <span className={classes.buttonText}>Page_3</span>
+                    </Button>
+                </section>
+                <section className={classes.pageMenuSection}>
+                    <Button disableElevation style={bottomButtons}>
+                        <ExitToAppIcon style={iconExitStyles} />
+                        <span>Main Page</span>
+                    </Button>
+                    <Button disableElevation style={bottomButtons}>
+                        <ExitToAppIcon style={{
+                            ...iconExitStyles,
+                            transform: 'rotate(-180deg)'
+                        }} />
+                        <span>Logout</span>
+                    </Button>
+                </section>
             </Box>
             <h1 className={classes.textPage}>Page_1</h1>
         </Box>
