@@ -67,7 +67,7 @@ function Page() {
                     <span>Logout</span>
                 </Button>
             </Box>
-            <h1>Page_1</h1>
+            <h1 className={classes.textPage}>Page_1</h1>
         </Box>
     );
 }

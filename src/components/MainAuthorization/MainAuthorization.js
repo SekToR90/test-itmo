@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from '@material-ui/core';
+import Box from '@material-ui/core/Box';
 import { withStyles } from '@material-ui/core/styles';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -8,6 +9,8 @@ import Main from '../Main/Main';
 import classNames from 'classnames';
 import { connect } from 'react-redux'
 import { fetchUsers } from '../../actions/actions'
+import homeImage from '../../images/home-image.svg'
+import logoutImg from '../../images/logout-img.svg'
 
 function MainAuthorization({ dispatch, isAuth, loading, user, hasErrors }) {
 
@@ -33,7 +36,16 @@ function MainAuthorization({ dispatch, isAuth, loading, user, hasErrors }) {
     dispatch(fetchUsers())
   }
 
-  const userData = <h3>{user?.name}/{user?.id}</h3>
+  const userData = <>
+    <Box className={classes.userBox}>
+      <img src={homeImage} alt='homeImage' className={classes.homeImage} />
+      <Box className={classes.aboutBox}>
+        <h3 className={classes.userName}>{user?.name}/{user?.id}</h3>
+        <a className={classes.loadingImg}><img src={logoutImg} alt='logoutImg' /> Logout</a>
+      </Box>
+    </Box>
+
+  </>
 
   const form = <>
     <h2 className={classNames(classes.subtitle)}>Sign In</h2>
@@ -52,7 +64,7 @@ function MainAuthorization({ dispatch, isAuth, loading, user, hasErrors }) {
   const renderUsers = () => {
     if (loading) return <p>Loading users...</p>
     if (hasErrors) return <p>Unable to display users.</p>
-    return !isAuth ?  form : userData
+    return !isAuth ? form : userData
   }
 
   return (

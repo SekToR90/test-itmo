@@ -21,7 +21,7 @@ function MainRegister({ children, isAuth }) {
           disabled={!isAuth}>
           <p className={classNames(classes.buttonText)}>PROJECTS</p>
         </Button>
-        <Link to='/page-1'>
+        <Link to='/page-1' className={classes.link}>
           <Button
             variant="contained"
             className={classNames(
