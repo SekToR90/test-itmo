@@ -2,7 +2,7 @@ export const DO_AUTH = 'DO_AUTH'
 export const DO_AUTH_SUCCESS = 'DO_AUTH_SUCCESS'
 export const DO_AUTH_FAILURE = 'DO_AUTH_FAILURE'
 
-export function fetchPosts() {
+export function fetchUsers() {
     return async (dispatch) => {
         dispatch({ type: DO_AUTH })
 

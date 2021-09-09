@@ -7,9 +7,9 @@ import classes from './MainAuthorization.module.css';
 import Main from '../Main/Main';
 import classNames from 'classnames';
 import { connect } from 'react-redux'
-import { fetchPosts } from '../../actions/actions'
+import { fetchUsers } from '../../actions/actions'
 
-function MainAuthorization({ dispatch, loading, posts, hasErrors }) {
+function MainAuthorization({ dispatch, loading, users, hasErrors }) {
 
   const GreenCheckbox = withStyles({
     root: {
@@ -30,13 +30,13 @@ function MainAuthorization({ dispatch, loading, posts, hasErrors }) {
   };
 
   function buttonSingIn () {
-    dispatch(fetchPosts())
+    dispatch(fetchUsers())
   }
 
-  const renderPosts = () => {
-    if (loading) return <p>Loading posts...</p>
-    if (hasErrors) return <p>Unable to display posts.</p>
-    return posts.map((post) => <div key={post.id}>{post.name}</div> )
+  const renderUsers = () => {
+    if (loading) return <p>Loading users...</p>
+    if (hasErrors) return <p>Unable to display users.</p>
+    return users.map((user) => <div key={user.id}>{user.name}</div> )
   }
 
 
@@ -54,16 +54,16 @@ function MainAuthorization({ dispatch, loading, posts, hasErrors }) {
               label="Remember password"
             />
           </form>
-          {renderPosts()}
+          {renderUsers()}
         </>
       } />
     );
   }
 
   const mapStateToProps = (state) => ({
-    loading: state.posts.loading,
-    posts: state.posts.posts,
-    hasErrors: state.posts.hasErrors,
+    loading: state.users.loading,
+    users: state.users.users,
+    hasErrors: state.users.hasErrors,
   })
 
   export default connect(mapStateToProps)(MainAuthorization)  
