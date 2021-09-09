@@ -7,12 +7,14 @@ export function fetchPosts() {
         dispatch({ type: DO_AUTH })
 
         try {
-            const response = await fetch('https://jsonplaceholder.typicode.com/posts')
-            const data = await response.json()
+            const [response] = await Promise.all([
+                fetch('https://jsonplaceholder.typicode.com/posts'),
+                new Promise(resolve => setTimeout(resolve, 1000))
+            ]);
 
             dispatch({
                 type: DO_AUTH_SUCCESS,
-                payload: data
+                payload: await response.json()
             })
 
         } catch (error) {
