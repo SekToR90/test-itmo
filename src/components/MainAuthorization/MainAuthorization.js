@@ -36,7 +36,7 @@ function MainAuthorization({ dispatch, isAuth, loading, user, hasErrors }) {
   const renderUsers = () => {
     if (loading) return <p>Loading users...</p>
     if (hasErrors) return <p>Unable to display users.</p>
-    return <div>isAuth {String(isAuth)}</div>
+    return !isAuth ?  form : <div>{user.name}/{user.id}</div>
   }
 
   const form = <>
@@ -51,12 +51,11 @@ function MainAuthorization({ dispatch, isAuth, loading, user, hasErrors }) {
         label="Remember password"
       />
     </form>
-    {renderUsers()}
   </>
 
   return (
     <Main children={
-      form
+      renderUsers()
     } />
   );
 }
