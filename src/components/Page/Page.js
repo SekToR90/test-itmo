@@ -1,7 +1,6 @@
 import React from 'react';
 import Box from '@material-ui/core/Box';
 import classes from './Page.module.scss';
-import classNames from 'classnames';
 import logo from '../../images/logo.svg';
 import { Button } from '@material-ui/core';
 import WorkIcon from '@material-ui/icons/Work';
@@ -33,26 +32,26 @@ function Page() {
     }
 
     return (
-        <Box className={classNames(classes.page)}>
-            <Box boxShadow={3} className={classNames(classes.pageMenu)}>
-                <Box className={classNames(classes.userData)}>
-                    <img src={logo} alt="logo" className={classNames(classes.userLogo)} />
-                    <Box className={classNames(classes.boxUser)}>
-                        <h2 className={classNames(classes.userName)}>User/1</h2>
-                        <p className={classNames(classes.team)}>Team member Tube</p>
+        <Box className={classes.page}>
+            <Box boxShadow={3} className={classes.pageMenu}>
+                <Box className={classes.userData}>
+                    <img src={logo} alt="logo" className={classes.userLogo} />
+                    <Box className={classes.boxUser}>
+                        <h2 className={classes.userName}>User/1</h2>
+                        <p className={classes.team}>Team member Tube</p>
                     </Box>
                 </Box>
                 <Button style={buttonStyles} disableElevation>
                     <WorkIcon alt="work-icon" style={iconStyles} />
-                    <span className={classNames(classes.buttonText)}>Page_1</span>
+                    <span className={classes.buttonText}>Page_1</span>
                 </Button>
                 <Button style={buttonStyles} disableElevation>
                     <DonutSmallIcon alt="work-icon" style={iconStyles} />
-                    <span className={classNames(classes.buttonText)}>Page_2</span>
+                    <span className={classes.buttonText}>Page_2</span>
                 </Button>
                 <Button style={buttonStyles} disableElevation>
                     <GroupIcon alt="work-icon" style={iconStyles} />
-                    <span className={classNames(classes.buttonText)}>Page_3</span>
+                    <span className={classes.buttonText}>Page_3</span>
                 </Button>
                 <Button disableElevation style={
                     bottomButtons
