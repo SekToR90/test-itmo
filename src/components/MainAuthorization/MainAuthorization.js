@@ -9,7 +9,7 @@ import classNames from 'classnames';
 import { connect } from 'react-redux'
 import { fetchUsers } from '../../actions/actions'
 
-function MainAuthorization({ dispatch, loading, user, hasErrors }) {
+function MainAuthorization({ dispatch, isAuth, loading, user, hasErrors }) {
 
   const GreenCheckbox = withStyles({
     root: {
@@ -36,7 +36,7 @@ function MainAuthorization({ dispatch, loading, user, hasErrors }) {
   const renderUsers = () => {
     if (loading) return <p>Loading users...</p>
     if (hasErrors) return <p>Unable to display users.</p>
-    return <div>{user?.name}</div>
+    return <div>isAuth {String(isAuth)}</div>
   }
 
   const form = <>
@@ -53,7 +53,7 @@ function MainAuthorization({ dispatch, loading, user, hasErrors }) {
     </form>
     {renderUsers()}
   </>
-  
+
   return (
     <Main children={
       form
@@ -63,6 +63,7 @@ function MainAuthorization({ dispatch, loading, user, hasErrors }) {
 
 const mapStateToProps = (state) => ({
   loading: state.users.loading,
+  isAuth: state.users.isAuth,
   user: state.users.user,
   hasErrors: state.users.hasErrors,
 })
