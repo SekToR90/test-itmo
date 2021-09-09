@@ -15,6 +15,8 @@ export default function usersReducer(state = initialState, action) {
       return { user: action.payload, isAuth: true, loading: false, hasErrors: false }
     case actions.DO_AUTH_FAILURE:
       return { ...state, loading: false, hasErrors: true }
+    case actions.CANSEL_AUTH:
+      return { ...state, isAuth: false, loading: false, hasErrors: false, user: null }
     default:
       return state
   }

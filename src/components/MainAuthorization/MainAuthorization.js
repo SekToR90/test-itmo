@@ -12,6 +12,8 @@ import { fetchUsers } from '../../actions/actions'
 import homeImage from '../../images/home-image.svg'
 import logoutImg from '../../images/logout-img.svg'
 
+import { CANSEL_AUTH } from '../../actions/actions'
+
 function MainAuthorization({ dispatch, isAuth, loading, user, hasErrors }) {
 
   const GreenCheckbox = withStyles({
@@ -35,13 +37,17 @@ function MainAuthorization({ dispatch, isAuth, loading, user, hasErrors }) {
   function buttonSingIn() {
     dispatch(fetchUsers())
   }
+  
+  function buttonLogout() {
+    dispatch({ type: CANSEL_AUTH })
+  }
 
   const userData = <>
     <Box className={classes.userBox}>
       <img src={homeImage} alt='homeImage' className={classes.homeImage} />
       <Box className={classes.aboutBox}>
         <h3 className={classes.userName}>{user?.name}/{user?.id}</h3>
-        <a className={classes.loadingImg}><img src={logoutImg} alt='logoutImg' /> Logout</a>
+        <a className={classes.loadingImg} onClick={buttonLogout}><img src={logoutImg} alt='logoutImg' /> Logout</a>
       </Box>
     </Box>
 

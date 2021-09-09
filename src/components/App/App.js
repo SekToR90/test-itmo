@@ -13,7 +13,9 @@ function App() {
           <MainAuthorization />
         </Route>
 
-        <ProtectedRoute path="/page-1" component={Page} />
+        <ProtectedRoute path="/page-1" component={Page} title={'Page_1'}/>
+        <ProtectedRoute path="/page-2" component={Page} title={'Page_2'}/>
+        <ProtectedRoute path="/page-3" component={Page} title={'Page_3'}/>
         
       </Switch>
     </div>

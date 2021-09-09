@@ -7,11 +7,17 @@ import WorkIcon from '@material-ui/icons/Work';
 import DonutSmallIcon from '@material-ui/icons/DonutSmall';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import GroupIcon from '@material-ui/icons/Group';
+import { Link, useLocation } from 'react-router-dom';
+import { connect } from 'react-redux'
 
+import { CANSEL_AUTH } from '../../actions/actions'
 
-function Page() {
+function Page({title, dispatch}) {
+    const location = useLocation();
+    const pathName = location.pathname; 
+    
     const buttonStyles = {
-        borderRadius: '0',
+        borderRadius: '0', textDecoration: 'none',
         textTransform: 'none', justifyContent: 'flex-start', paddingLeft: '27px',
         marginBottom: '26px'
     };
@@ -30,7 +36,11 @@ function Page() {
     const bottomButtons = {
         justifyContent: 'flex-start'
     }
-
+    
+    function buttonLogout() {
+        dispatch({ type: CANSEL_AUTH })
+      }
+    
     return (
         <Box className={classes.page}>
             <Box boxShadow={3} className={classes.pageMenu}>
@@ -42,39 +52,69 @@ function Page() {
                             <p className={classes.team}>Team member Tube</p>
                         </Box>
                     </Box>
+                    <Link to='/page-1' style={ pathName === '/page-1' ? 
+                            {...buttonStyles,
+                            backgroundColor: '#86BD24'} : {paddingLeft: '27px',
+                            marginBottom: '26px', textDecoration: 'none'}
+                        }>
+                        <Button style={{
+                            textTransform: 'none'
+                        }} disableElevation>
+                            <WorkIcon alt="work-icon" style={iconStyles} />
+                            <span className={classes.buttonText}>Page_1</span>
+                        </Button>
+                    </Link>
+                    <Link to='/page-2' style={ pathName === '/page-2' ? 
+                            {...buttonStyles,
+                            backgroundColor: '#86BD24'} : {paddingLeft: '27px',
+                            marginBottom: '26px', textDecoration: 'none'}
+                        }>
                     <Button style={{
-                        ...buttonStyles,
-                        backgroundColor: '#86BD24'
-                    }} disableElevation>
-                        <WorkIcon alt="work-icon" style={iconStyles} />
-                        <span className={classes.buttonText}>Page_1</span>
-                    </Button>
-                    <Button style={buttonStyles} disableElevation>
+                            textTransform: 'none'
+                        }} disableElevation>
                         <DonutSmallIcon alt="work-icon" style={iconStyles} />
                         <span className={classes.buttonText}>Page_2</span>
                     </Button>
-                    <Button style={buttonStyles} disableElevation>
+                    </Link>
+                    <Link to='/page-3' style={ pathName === '/page-3' ? 
+                            {...buttonStyles,
+                            backgroundColor: '#86BD24'} : {paddingLeft: '27px',
+                            marginBottom: '26px', textDecoration: 'none'}
+                        }>
+                    <Button style={{
+                            textTransform: 'none'
+                        }} disableElevation>
                         <GroupIcon alt="work-icon" style={iconStyles} />
                         <span className={classes.buttonText}>Page_3</span>
                     </Button>
+                    </Link>
                 </section>
                 <section className={classes.pageMenuSection}>
                     <Button disableElevation style={bottomButtons}>
                         <ExitToAppIcon style={iconExitStyles} />
+                        <Link to='/' style={{color: '#717171',
+                         textDecoration: 'none'
+                         }}>
                         <span>Main Page</span>
+                        </Link>
                     </Button>
-                    <Button disableElevation style={bottomButtons}>
+                    <Button disableElevation style={bottomButtons} onClick={buttonLogout}>
                         <ExitToAppIcon style={{
-                            ...iconExitStyles,
+                            ...iconExitStyles, 
                             transform: 'rotate(-180deg)'
                         }} />
                         <span>Logout</span>
                     </Button>
                 </section>
             </Box>
-            <h1 className={classes.textPage}>Page_1</h1>
+            <h1 className={classes.textPage}>{`${title}`}</h1>
         </Box>
     );
 }
-
-export default Page;
+  
+const mapStateToProps = (state) => ({
+    isAuth: state.users.isAuth,
+    user: state.users.user,
+  })
+  
+  export default connect(mapStateToProps)(Page)
