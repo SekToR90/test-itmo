@@ -12,9 +12,10 @@ export function fetchUsers() {
                 new Promise(resolve => setTimeout(resolve, 1000))
             ]);
 
+            const users = await response.json()
             dispatch({
                 type: DO_AUTH_SUCCESS,
-                payload: await response.json()
+                payload: users[0]
             })
 
         } catch (error) {
