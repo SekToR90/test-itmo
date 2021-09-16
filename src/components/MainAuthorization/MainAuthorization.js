@@ -1,24 +1,33 @@
-import React from 'react';
+import React, {useState} from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import classNames from 'classnames';
+
+
 import { Button } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
 import { withStyles } from '@material-ui/core/styles';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+
+
 import classes from './MainAuthorization.module.css';
 import Main from '../Main/Main';
-import classNames from 'classnames';
-import { connect } from 'react-redux'
-import { fetchUsers } from '../../actions/actions'
-import homeImage from '../../images/home-image.svg'
-import logoutImg from '../../images/logout-img.svg'
+import { fetchUsers } from '../../actions/actions';
+import homeImage from '../../images/home-image.svg';
+import logoutImg from '../../images/logout-img.svg';
+import { CANSEL_AUTH } from '../../actions/actions';
 
-import { CANSEL_AUTH } from '../../actions/actions'
 
-function MainAuthorization({ dispatch, isAuth, loading, user, hasErrors }) {
-  const [emailIsValid, setEmailIsValid] = React.useState(false);
-  const [passwordIsValid, setPasswordIsValid] = React.useState(false);
-  const [passwordErrorMessage, setPasswordErrorMessage] = React.useState('');
-  const [emailErrorMessage, setEmailErrorMessage] = React.useState('');
+function MainAuthorization() {
+  const [emailIsValid, setEmailIsValid] = useState(false);
+  const [passwordIsValid, setPasswordIsValid] = useState(false);
+  const [passwordErrorMessage, setPasswordErrorMessage] = useState('');
+  const [emailErrorMessage, setEmailErrorMessage] = useState('');
+  const loading = useSelector((state) => state.users.loading);
+  const isAuth = useSelector((state) => state.users.isAuth);
+  const user = useSelector((state) => state.users.user);
+  const hasErrors = useSelector((state) => state.users.hasErrors);
+  const dispatch = useDispatch();
 
   function handleEmailChange(evt) {
     setEmailIsValid(evt.target.validationMessage ? false : true);
@@ -40,7 +49,7 @@ function MainAuthorization({ dispatch, isAuth, loading, user, hasErrors }) {
     checked: {},
   })((props) => <Checkbox color="default" {...props} />);
 
-  const [state, setState] = React.useState({
+  const [state, setState] = useState({
     checkedG: true,
   });
 
@@ -53,7 +62,7 @@ function MainAuthorization({ dispatch, isAuth, loading, user, hasErrors }) {
   }
   
   function buttonLogout() {
-    dispatch({ type: CANSEL_AUTH })
+    dispatch({ type: CANSEL_AUTH }) // поправить
   }
 
   const userData = <>
@@ -61,7 +70,7 @@ function MainAuthorization({ dispatch, isAuth, loading, user, hasErrors }) {
       <img src={homeImage} alt='homeImage' className={classes.homeImage} />
       <Box className={classes.aboutBox}>
         <h3 className={classes.userName}>{user?.name}/{user?.id}</h3>
-        <a className={classes.loadingImg} onClick={buttonLogout}><img src={logoutImg} alt='logoutImg' /> Logout</a>
+        <a href className={classes.loadingImg} onClick={buttonLogout}><img src={logoutImg} alt='logoutImg' /> Logout</a>
       </Box>
     </Box>
 
@@ -100,11 +109,4 @@ function MainAuthorization({ dispatch, isAuth, loading, user, hasErrors }) {
   );
 }
 
-const mapStateToProps = (state) => ({
-  loading: state.users.loading,
-  isAuth: state.users.isAuth,
-  user: state.users.user,
-  hasErrors: state.users.hasErrors,
-})
-
-export default connect(mapStateToProps)(MainAuthorization)
+export default MainAuthorization

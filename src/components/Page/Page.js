@@ -1,20 +1,25 @@
 import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
+
 import Box from '@material-ui/core/Box';
-import classes from './Page.module.scss';
-import logo from '../../images/logo.svg';
 import { Button } from '@material-ui/core';
 import WorkIcon from '@material-ui/icons/Work';
 import DonutSmallIcon from '@material-ui/icons/DonutSmall';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import GroupIcon from '@material-ui/icons/Group';
-import { Link, useLocation } from 'react-router-dom';
-import { connect } from 'react-redux'
 
-import { CANSEL_AUTH } from '../../actions/actions'
 
-function Page({title, dispatch}) {
+import classes from './Page.module.scss';
+import logo from '../../images/logo.svg';
+import { CANSEL_AUTH } from '../../actions/actions';
+
+
+function Page({ title }) {
     const location = useLocation();
     const pathName = location.pathname; 
+    const dispatch = useDispatch();
     
     const buttonStyles = {
         borderRadius: '0', textDecoration: 'none',
@@ -112,9 +117,6 @@ function Page({title, dispatch}) {
     );
 }
   
-const mapStateToProps = (state) => ({
-    isAuth: state.users.isAuth,
-    user: state.users.user,
-  })
+
   
-  export default connect(mapStateToProps)(Page)
+  export default Page

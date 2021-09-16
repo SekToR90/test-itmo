@@ -5,10 +5,13 @@ import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
+
+
 import './index.css';
 import App from './components/App/App';
 import rootReducer from './reducers'
 import reportWebVitals from './reportWebVitals';
+
 
 const store = createStore(
   rootReducer,

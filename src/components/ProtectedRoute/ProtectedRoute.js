@@ -1,8 +1,10 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux'
+import { useSelector } from 'react-redux'
 
-const ProtectedRoute = ({isAuth, component: Component, ...props }) => {
+const ProtectedRoute = ({component: Component, ...props }) => {
+  const isAuth = useSelector((state) => state.users.isAuth)
+
   return (
     <Route>
       {() =>
@@ -20,9 +22,5 @@ const ProtectedRoute = ({isAuth, component: Component, ...props }) => {
     </Route>
   );
 };
-
-const mapStateToProps = (state) => ({
-    isAuth: state.users.isAuth
-  })
   
-  export default connect(mapStateToProps)(ProtectedRoute)
+  export default ProtectedRoute

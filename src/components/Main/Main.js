@@ -1,53 +1,30 @@
 import React from 'react';
-import Box from '@material-ui/core/Box';
-import { Button } from '@material-ui/core';
-import classes from './Main.module.scss';
-import classNames from 'classnames';
-import { connect } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
+import classNames from 'classnames';
 
-function MainRegister({ children, isAuth }) {
 
-  const marketButton = <Button
-  variant="contained"
-  className={classNames(
-    classes.button,
-    classes.button_second,
-    classes.buttonMarket, {
-    [classes.buttonMarket_disabled]: !isAuth
-  })}
-  disabled={!isAuth}>
-  <p className={classNames(classes.buttonText)}>MARKET</p>
-</Button>;
+import Box from '@material-ui/core/Box';
+
+
+import classes from './Main.module.scss';
+import MainButton from './button/MainButton';
+
+
+function MainRegister({ children }) {
+  const isAuth = useSelector((state) => state.users.isAuth)
 
   return (
-    <Box display="flex" justifyContent="space-evenly" style={{padding:'64px 0 0 0'}} className={classNames(classes.mainBox)} m={1} p={1}>
+    <Box display="flex" justifyContent="space-evenly" style={{ padding: '64px 0 0 0' }} className={classNames(classes.mainBox)} m={1} p={1}>
       <div id="buttonContainer">
-        <Button
-          variant="contained"
-          className={classNames(
-            classes.button,
-            classes.button_first,
-            classes.buttonProgects, {
-            [classes.buttonProgects_disabled]: !isAuth
-          })}
-          disabled={!isAuth}>
-          <p className={classNames(classes.buttonText)}>PROJECTS</p>
-        </Button>
-        { isAuth ? (<Link to='/page-1'>
-            {marketButton}
-          </Link>) : marketButton
+        <MainButton title={'PROJECTS'} name={'Progects'} position={'first'}/>
+        {isAuth ?
+          (<Link to='/page-1'>
+            <MainButton title={'MARKET'} name={'Market'} position={'second'}/>
+          </Link>) :
+          <MainButton title={'MARKET'} name={'Market'} position={'second'}/>
         }
-        <Button
-          variant="contained"
-          className={classNames(
-            classes.button,
-            classes.buttonUser, {
-            [classes.buttonUser_disabled]: !isAuth
-          })}
-          disabled={!isAuth}>
-          <p className={classNames(classes.buttonText)}>USER</p>
-        </Button>
+        <MainButton title={'USER'} name={'User'} />
       </div>
       <Box display="flex" flexDirection="column">
         <h1 className={classNames(classes.title)}>Welcome to the ...</h1>
@@ -57,8 +34,4 @@ function MainRegister({ children, isAuth }) {
   );
 }
 
-const mapStateToProps = (state) => ({
-  isAuth: state.users.isAuth
-})
-
-export default connect(mapStateToProps)(MainRegister)
+export default MainRegister
