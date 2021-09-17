@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
-import './App.css';
+import './App.scss';
 import  MainAuthorization  from '../MainAuthorization/MainAuthorization';
 import Page from '../Page/Page';
 
