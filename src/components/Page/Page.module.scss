@@ -27,7 +27,7 @@
 .page {
     min-height: 100%;
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
 }
 
 .userLogo {
@@ -46,7 +46,8 @@
     margin: 24px;
 }
 
-.pageMenu, .pageMenuSection {
+.pageMenu,
+.pageMenuSection {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -70,8 +71,39 @@
     margin: 404px 437px 0 0;
 }
 
+.buttonStyles {
+    border-radius: 0;
+    text-decoration: none;
+    text-transform: none;
+    justify-content: flex-start;
+    padding-left: 27px;
+    margin-bottom: 26px;
+}
+
+.buttonStyles_active {
+    background-color: #86bd24;
+}
+
+.iconStyles {
+    color: #86bd24;
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    width: 15px;
+    height: 15px;
+}
+
+.iconExitStyles {
+    background-color: #e8e8e8;
+    padding: 4px;
+    width: 18px;
+    height: 18px;
+    border-radius: 5px;
+    transform: rotate(-90deg);
+}
+
 @media screen and (max-width: 788px) {
-    .buttonText{
+    .buttonText {
         display: none;
     }
 
@@ -86,9 +118,9 @@
     }
 
     .team {
-       display: none;
-    }  
-    
+        display: none;
+    }
+
     .boxUser {
         margin: 0;
     }

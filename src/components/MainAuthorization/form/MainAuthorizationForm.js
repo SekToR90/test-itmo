@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import { useDispatch } from 'react-redux';
-import classNames from 'classnames';
 
 
 import { Button } from '@material-ui/core';
@@ -55,18 +54,18 @@ const MainAuthorizationForm = () => {
 
     return (
         <>
-            <h2 className={classNames(classes.subtitle)}>Sign In</h2>
-            <form id="formSignIn" className={classNames(classes.form)}>
-                <input type="email" name="email" placeholder="Email*" className={classNames(classes.input)} required onChange={handleEmailChange}></input>
+            <h2 className={classes.subtitle}>Sign In</h2>
+            <form id="formSignIn" className={classes.form}>
+                <input type="email" name="email" placeholder="Email*" className={classes.input} required onChange={handleEmailChange}></input>
                 <span id="urlAvatar-error" className={classes.spanError}>
                     {emailErrorMessage}
                 </span>
-                <input type="password" name="password" placeholder="Password*" autoComplete="off" className={classNames(classes.input)} required onChange={handlePasswordChange}></input>
+                <input type="password" name="password" placeholder="Password*" autoComplete="off" className={classes.input} required onChange={handlePasswordChange}></input>
                 <span className={classes.spanError} id="urlAvatar-error">
                     {passwordErrorMessage}
                 </span>
-                <Button size="small" className={classNames(classes.buttonForgotPassword)}>Forgot password?</Button>
-                <Button variant="contained" className={classNames(classes.buttonSignIn)} onClick={buttonSingIn} disableElevation disabled={!emailIsValid || !passwordIsValid}>Sign In</Button>
+                <Button size="small" className={classes.buttonForgotPassword}>Forgot password?</Button>
+                <Button variant="contained" className={classes.buttonSignIn} onClick={buttonSingIn} disableElevation disabled={!emailIsValid || !passwordIsValid}>Sign In</Button>
                 <FormControlLabel
                     control={<GreenCheckbox checked={state.checkedG} onChange={handleChange} name="checkedG" />}
                     label="Remember password"

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 
@@ -14,38 +14,20 @@ import GroupIcon from '@material-ui/icons/Group';
 import classes from './Page.module.scss';
 import logo from '../../images/logo.svg';
 import { CANSEL_AUTH } from '../../actions/actions';
+import PageBotton from './button/PageButton';
 
 
 function Page({ title }) {
-    const location = useLocation();
-    const pathName = location.pathname; 
     const dispatch = useDispatch();
-    
-    const buttonStyles = {
-        borderRadius: '0', textDecoration: 'none',
-        textTransform: 'none', justifyContent: 'flex-start', paddingLeft: '27px',
-        marginBottom: '26px'
-    };
-
-    const iconStyles = {
-        color: '#86BD24', backgroundColor: '#fff',
-        padding: '5px', borderRadius: '5px', width: '15px',
-        height: '15px'
-    };
-
-    const iconExitStyles = {
-        backgroundColor: '#E8E8E8', padding: '4px', width: '18px',
-        height: '18px', borderRadius: '5px', transform: 'rotate(-90deg)'
-    };
 
     const bottomButtons = {
         justifyContent: 'flex-start'
     }
-    
+
     function buttonLogout() {
         dispatch({ type: CANSEL_AUTH })
-      }
-    
+    }
+
     return (
         <Box className={classes.page}>
             <Box boxShadow={3} className={classes.pageMenu}>
@@ -57,57 +39,36 @@ function Page({ title }) {
                             <p className={classes.team}>Team member Tube</p>
                         </Box>
                     </Box>
-                    <Link to='/page-1' style={ pathName === '/page-1' ? 
-                            {...buttonStyles,
-                            backgroundColor: '#86BD24'} : {paddingLeft: '27px',
-                            marginBottom: '26px', textDecoration: 'none'}
-                        }>
-                        <Button style={{
-                            textTransform: 'none'
-                        }} disableElevation>
-                            <WorkIcon alt="work-icon" style={iconStyles} />
-                            <span className={classes.buttonText}>Page_1</span>
-                        </Button>
-                    </Link>
-                    <Link to='/page-2' style={ pathName === '/page-2' ? 
-                            {...buttonStyles,
-                            backgroundColor: '#86BD24'} : {paddingLeft: '27px',
-                            marginBottom: '26px', textDecoration: 'none'}
-                        }>
-                    <Button style={{
-                            textTransform: 'none'
-                        }} disableElevation>
-                        <DonutSmallIcon alt="work-icon" style={iconStyles} />
-                        <span className={classes.buttonText}>Page_2</span>
-                    </Button>
-                    </Link>
-                    <Link to='/page-3' style={ pathName === '/page-3' ? 
-                            {...buttonStyles,
-                            backgroundColor: '#86BD24'} : {paddingLeft: '27px',
-                            marginBottom: '26px', textDecoration: 'none'}
-                        }>
-                    <Button style={{
-                            textTransform: 'none'
-                        }} disableElevation>
-                        <GroupIcon alt="work-icon" style={iconStyles} />
-                        <span className={classes.buttonText}>Page_3</span>
-                    </Button>
-                    </Link>
+
+                    <PageBotton link={'/page-1'} title={'Page_1'} children={
+                        <>
+                            <WorkIcon alt='work-icon' className={classes.iconStyles} />
+                        </>
+                    } />
+                    <PageBotton link={'/page-2'} title={'Page_2'} children={
+                        <>
+                            <DonutSmallIcon alt="donut-icon" className={classes.iconStyles} />
+                        </>
+                    } />
+                    <PageBotton link={'/page-3'} title={'Page_3'} children={
+                        <>
+                            <GroupIcon alt="group-icon" className={classes.iconStyles} />
+                        </>
+                    } />
+
                 </section>
                 <section className={classes.pageMenuSection}>
                     <Button disableElevation style={bottomButtons}>
-                        <ExitToAppIcon style={iconExitStyles} />
-                        <Link to='/' style={{color: '#717171',
-                         textDecoration: 'none'
-                         }}>
-                        <span className={classes.buttonLink}>Main Page</span>
+                        <ExitToAppIcon className={classes.iconExitStyles} />
+                        <Link to='/' style={{
+                            color: '#717171',
+                            textDecoration: 'none'
+                        }}>
+                            <span className={classes.buttonLink}>Main Page</span>
                         </Link>
                     </Button>
                     <Button disableElevation style={bottomButtons} onClick={buttonLogout}>
-                        <ExitToAppIcon style={{
-                            ...iconExitStyles, 
-                            transform: 'rotate(-180deg)'
-                        }} />
+                        <ExitToAppIcon style={{ transform: 'rotate(-180deg)' }} className={classes.iconExitStyles} />
                         <span className={classes.buttonLink}>Logout</span>
                     </Button>
                 </section>
@@ -116,7 +77,5 @@ function Page({ title }) {
         </Box>
     );
 }
-  
 
-  
-  export default Page
+export default Page
